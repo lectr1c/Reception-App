@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+.container {
+    width: 100vw;
+    background: #14213d;
+    display: flex;
+    height: 4rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container h1 {
+    color: #fca311;
+    font-family: 'Silkscreen', cursive;
+    margin: 5px 0 5px 0;
+}
+
+.container h1:hover {
+    color: #ffffff;
+}
+
+@media screen and (max-width: 630px) {
+    .container h1 {
+        font-size: 5vw;
+        overflow: hidden;
+    }
+}

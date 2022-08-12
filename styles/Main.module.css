@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.heroContainer {
+    height: 50vh;
+    width: 100vw;
+    margin-bottom: 4rem;
+    background-color: #E5E5E5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.graphContainer {
+    height: 100%;
+    width: 50vw;
+    padding: 10px 0 10px 0;
+}
+
+.tableContainer {
+    width: 90vw;
+}
+
+.table {
+    background-color: #ffffff;
+}
+
+.table thead tr th {
+    color: #fca311;
+    font-family: 'Silkscreen', cursive;
+}
+
+.table tbody tr {
+    font-family: 'Silkscreen', cursive;
+}
