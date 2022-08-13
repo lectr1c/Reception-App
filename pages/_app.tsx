@@ -2,8 +2,9 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { MantineProvider } from "@mantine/core";
 import Head from 'next/head';
+import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps} }: AppProps) {
   return (
       <>
           <Head>
@@ -18,7 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                   colorScheme: 'light',
               }}
           >
-              <Component {...pageProps} />
+              <SessionProvider session={session}>
+                  <Component {...pageProps} />
+              </SessionProvider>
           </MantineProvider>
       </>
   )
