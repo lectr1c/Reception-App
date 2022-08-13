@@ -16,7 +16,7 @@ const Home: NextPage = () => {
     <div>
         <Header/>
         <Main/>
-        <Button onClick={() => signIn()}>Log In</Button>
+        <Button color={'green'} onClick={() => signIn()}>Log In</Button>
     </div>
   )
 }
