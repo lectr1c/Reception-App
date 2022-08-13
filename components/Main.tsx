@@ -7,6 +7,7 @@ const Main = () => {
     return (
         <div className={styles.container}>
             <Hero/>
+            <PointsLog/>
         </div>
     )
 }

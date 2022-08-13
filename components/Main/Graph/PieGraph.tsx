@@ -39,6 +39,7 @@ export const data : ChartData<'pie'> = {
 };
 
 export const options : ChartOptions<'pie'> = {
+    responsive: true,
     maintainAspectRatio: false,
     plugins: {
         legend: {

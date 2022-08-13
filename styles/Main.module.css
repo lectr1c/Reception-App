@@ -8,7 +8,7 @@
 .heroContainer {
     min-height: 50vh;
     max-height: 70vh;
-    width: 100%;
+    width: 100vw;
     margin-bottom: 4rem;
     background-color: #E5E5E5;
     display: flex;
@@ -18,19 +18,49 @@
 }
 
 @media screen and (max-width: 630px) {
- 
+    .tableContainer {
+        width: 100vw;
+    }
+    .table thead tr th {
+        font-size: 12px;
+    }
+
+    .table tbody tr td {
+        font-size: 11px;
+    }
+    .heroMessageCon
+    {
+        flex-basis: 100%;
+    }
+    .heroContainer{
+        padding: 0 10px 20px 10px;
+    }
+    .graphContainer{
+        flex-basis: 100%;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .table thead tr th {
+        font-size: 10px;
+    }
+
+    .table tbody tr td {
+        font-size: 9px;
+    }
 }
 
 
 
 .graphContainer {
     height: 100%;
-    width: 50%;
+    width: 50vw;
     padding: 10px 0 10px 0;
 }
 
 .tableContainer {
-    width: 90vw;
+    width: 90%;
+    overflow-x: auto;
 }
 
 .table {

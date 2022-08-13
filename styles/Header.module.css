@@ -22,4 +22,8 @@
         font-size: 5vw;
         overflow: hidden;
     }
+
+    .container {
+        height: 2rem;
+    }
 }
