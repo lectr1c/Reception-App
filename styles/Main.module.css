@@ -18,16 +18,7 @@
 }
 
 @media screen and (max-width: 630px) {
-    .heroMessageCon
-    {
-        flex-basis: 100%;
-    }
-    .heroContainer{
-        padding: 0 10px 20px 10px;
-    }
-    .graphContainer{
-        flex-basis: 100%;
-    }
+ 
 }
 
 
