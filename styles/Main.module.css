@@ -15,11 +15,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    padding: 0 10px 20px 10px;
 }
 
 @media screen and (max-width: 630px) {
     .tableContainer {
-        width: 100vw;
+        width: 100vw !important;
     }
     .table thead tr th {
         font-size: 12px;
@@ -32,15 +33,12 @@
     {
         flex-basis: 100%;
     }
-    .heroContainer{
-        padding: 0 10px 20px 10px;
-    }
     .graphContainer{
         flex-basis: 100%;
     }
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 400px) {
     .table thead tr th {
         font-size: 10px;
     }
@@ -59,7 +57,7 @@
 }
 
 .tableContainer {
-    width: 90%;
+    width: 90vw;
     overflow-x: auto;
 }
 

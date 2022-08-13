@@ -12,7 +12,7 @@ interface LineProps {
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 export const data : ChartData<'pie'> = {
-    labels: ['Jupiter', 'Uranus', 'Astronauts', 'Stars', 'Aliens', 'Mars'],
+    labels: ['Jupiter', 'urAnus', 'Astronauts', 'Stars', 'Aliens', 'Mars'],
     datasets: [
         {
             label: '# of Votes',
