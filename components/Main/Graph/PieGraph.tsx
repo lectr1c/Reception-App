@@ -43,7 +43,14 @@ export const options : ChartOptions<'pie'> = {
     maintainAspectRatio: false,
     plugins: {
         legend: {
-            position: 'bottom'
+            position: 'bottom',
+            labels: {
+                color: "#14213D",
+                font: {
+                    family: 'Silkscreen',
+                    size: 15
+                }
+            }
         },
         title: {
             display: true,
@@ -53,7 +60,7 @@ export const options : ChartOptions<'pie'> = {
                 family: 'Silkscreen',
                 size: 20,
             },
-            color: "#fca311"
+            color: '#fca311'
         }
     }
 }
