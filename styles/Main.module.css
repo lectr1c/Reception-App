@@ -6,14 +6,32 @@
 }
 
 .heroContainer {
-    height: 50vh;
+    min-height: 50vh;
+    max-height: 70vh;
     width: 100vw;
     margin-bottom: 4rem;
     background-color: #E5E5E5;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px 0 20px;
 }
+
+@media screen and (max-width: 630px) {
+    .heroMessageCon
+    {
+        flex-basis: 100%;
+    }
+    .heroContainer{
+        padding: 0 10px 20px 10px;
+    }
+    .graphContainer{
+        flex-basis: 100%;
+    }
+}
+
+
 
 .graphContainer {
     height: 100%;

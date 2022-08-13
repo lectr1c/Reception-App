@@ -5,7 +5,7 @@ const Hero = () => {
 
     return (
         <div className={styles.heroContainer}>
-            <div>
+            <div className={styles.heroMessageCon}>
                 hi
             </div>
             <div className={styles.graphContainer}>
