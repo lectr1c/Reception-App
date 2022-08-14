@@ -7,6 +7,13 @@ type TPointsLog = {
     registeredAt?: Date
 }
 
+type Team = {
+    id?: number,
+    name?: string,
+    points?: number
+}
+
 export type {
     TPointsLog,
+    Team
 }

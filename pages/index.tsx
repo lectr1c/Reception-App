@@ -4,9 +4,6 @@ import Header from '../components/Header';
 import Main from '../components/Main';
 import sv from 'javascript-time-ago/locale/sv.json';
 import TimeAgo from 'javascript-time-ago';
-import { Button } from '@mantine/core';
-
-import { useSession, signIn, signOut } from "next-auth/react";
 
 TimeAgo.addLocale(sv);
 TimeAgo.addDefaultLocale(sv);
@@ -16,7 +13,6 @@ const Home: NextPage = () => {
     <div>
         <Header/>
         <Main/>
-        <Button color={'green'} onClick={() => signIn()}>Log In</Button>
     </div>
   )
 }

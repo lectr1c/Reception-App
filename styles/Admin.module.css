@@ -1,0 +1,45 @@
+.signInButton {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.UnAuthCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: calc(100vh - 4rem);
+    flex-direction: column;
+}
+
+.dashboardContainer {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 4rem);
+    background-color: #FCA311;
+    color: #111111;
+    align-items: center;
+}
+
+.dashboardContainer > div > button {
+    margin: 10px 0 20px 0;
+}
+
+.dashboardContainer > div {
+    width: 30vw;
+}
+
+.numInput {
+    margin: 10px 0 0 0;
+}
+
+@media screen and (max-width: 630px) {
+    .dashboardContainer {
+        height: calc(100vh - 2rem);
+    }
+
+    .dashboardContainer > div {
+        width: 95vw;
+    }
+}
