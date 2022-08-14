@@ -24,6 +24,18 @@ class PointLogRepo {
             return e;
         }
     }
+
+    async getLog() : Promise<TPointsLog[]> {
+        try {
+            const log = await PointLogModel.find({}, ["teamName", "reason", "points", "registeredAt"], {
+                sort: {
+                    registeredAt: -1
+                }});
+            return log;
+        } catch (e : MongooseError | any) {
+            return e
+        }
+    }
 }
 
 export default PointLogRepo

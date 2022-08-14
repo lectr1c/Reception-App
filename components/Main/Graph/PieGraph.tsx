@@ -15,17 +15,9 @@ export const data : ChartData<'pie'> = {
     labels: ['Jupiter', 'urAnus', 'Astronauts', 'Stars', 'Aliens', 'Mars'],
     datasets: [
         {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '# Points',
+            data: [1, 1, 1, 1, 1, 1],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.3)',
-                'rgba(54, 162, 235, 0.3)',
-                'rgba(255, 206, 86, 0.3)',
-                'rgba(75, 192, 192, 0.3)',
-                'rgba(153, 102, 255, 0.3)',
-                'rgba(255, 159, 64, 0.3)',
-            ],
-            borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
@@ -33,7 +25,15 @@ export const data : ChartData<'pie'> = {
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)',
             ],
-            borderWidth: 3,
+            borderColor: [
+                'rgba(255, 99, 132, 0.3)',
+                'rgba(54, 162, 235, 0.3)',
+                'rgba(255, 206, 86, 0.3)',
+                'rgba(75, 192, 192, 0.3)',
+                'rgba(153, 102, 255, 0.3)',
+                'rgba(255, 159, 64, 0.3)',
+            ],
+            borderWidth: 5,
         },
     ],
 };

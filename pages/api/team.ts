@@ -18,50 +18,52 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const session = await getToken({req, secret})
-  const repo = new TeamRepo();
-  const pointsRepo = new PointLogRepo();
-
+  const repo = new TeamRepo();  const pointsRepo = new PointLogRepo();
+  //
   // if (req.method != "GET") {
   //   if (!session?.email?.endsWith("isflemingsberg.se")) {
   //     res.status(403).json({name: "Unauthorised"})
   //   }
   // }
 
-  if (req.method == "POST") {
-    repo.createTeam({
-      name: req.body.name,
-      points: 0
-    }).then(r => {
-      // @ts-ignore
-      res.status(200).json({...r});
-    }).catch(err => {
-      res.status(400);
-    });
-  }
+    return new Promise(resolve => {
+        if (req.method == "POST") {
+            repo.createTeam({
+                name: req.body.name,
+                points: 0
+            }).then(r => {
+                // @ts-ignore
+                res.status(200).json({...r._doc});
+            }).catch(err => {
+                res.status(400);
+            });
+        }
 
-  if (req.method == "GET") {
-    repo.getTeams()
-        .then(r => {
-          // @ts-ignore
-          res.status(200).json({teams: [...r]})
-        })
-        .catch(err => {
-          res.status(400).json({name: err.message})
-          console.log(err);
-        })
-  }
+        if (req.method == "GET") {
+            repo.getTeams()
+                .then(r => {
+                    // @ts-ignore
+                    res.status(200).json({...r});
+                })
+                .catch(err => {
+                    res.status(400).json({name: err.message})
+                    console.log(err);
+                })
+        }
 
-  if (req.method == "PUT") {
-    // @ts-ignore
-    pointsRepo.addPoints(req.body.teamName, req.body.pointsToAdd, req.body.reason)
-        .then(r => {
-          // @ts-ignore
-          res.status(200).json({points: r.points})
-        })
-        .catch(err => {
-          // @ts-ignore
-          res.status(400).json({error: err.message});
-        })
-  }
+        if (req.method == "PUT") {
+            // @ts-ignore
+            pointsRepo.addPoints(req.body.teamName, req.body.pointsToAdd, req.body.reason)
+                .then(r => {
+                    // @ts-ignore
+                    res.status(200).json({points: (r.points + req.body.pointsToAdd)})
+                })
+                .catch(err => {
+                    // @ts-ignore
+                    res.status(400).json({error: err.message});
+                })
+        }
 
+        return resolve;
+    })
 }
