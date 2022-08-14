@@ -11,7 +11,7 @@ const Dashboard = () => {
     return (
         <>
             <Header/>
-            {!session || !session.user?.email?.endsWith("isflemingsberg.se") ? <DashboardPage/> : <UnAuthorised/>  }
+            {!session || !session.user?.email?.endsWith("isflemingsberg.se") ? <UnAuthorised/> : <DashboardPage/> }
         </>
     )
 }

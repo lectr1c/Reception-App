@@ -21,7 +21,6 @@ class TeamRepo {
             return TeamCr;
         } catch (err: MongooseError | any) {
             console.log(err.message);
-            
             return err;
         }
     }
