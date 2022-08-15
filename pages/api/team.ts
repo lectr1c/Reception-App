@@ -57,7 +57,7 @@ export default async function handler(
     //             }
     //   })}
 
-    
+
   const repo = new TeamRepo();  const pointsRepo = new PointLogRepo();
 
 

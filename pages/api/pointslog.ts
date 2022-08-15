@@ -6,6 +6,32 @@ import {Team} from "../../types";
 import {useSession} from "next-auth/react";
 import { getToken } from "next-auth/jwt"
 import PointLogRepo from "../../lib/repo/PointLogRepo";
+const Cors = require('cors');
+
+
+// Initializing the cors middleware
+// You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
+const cors = Cors({
+    methods: ['POST', 'GET', 'HEAD', 'PUT'],
+})
+
+// Helper method to wait for a middleware to execute before continuing
+// And to throw an error when an error happens in a middleware
+function runMiddleware(
+    req: NextApiRequest,
+    res: NextApiResponse,
+    fn: Function
+) {
+    return new Promise((resolve, reject) => {
+        fn(req, res, (result: any) => {
+            if (result instanceof Error) {
+                return reject(result)
+            }
+
+            return resolve(result)
+        })
+    })
+}
 
 type Data = {
     name: string
@@ -17,16 +43,10 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
+    await runMiddleware(req, res, cors);
     const repo = new TeamRepo();
     const pointsRepo = new PointLogRepo();
 
-
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    );
-    res.setHeader("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
 
     return new Promise(resolve => {
 
