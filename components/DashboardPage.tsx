@@ -27,7 +27,7 @@ const DashboardPage = () => {
     const addTeam = () => {
         axios.post("http://localhost:3000/api/team", {name: teamName})
             .then(r => {
-                console.log(r);
+                console.log("Yooo" + r);
                 setTeams.setState([...r.data]);
             })
             .catch(err => {
@@ -42,7 +42,7 @@ const DashboardPage = () => {
     const addPoints = () => {
         axios.put("http://localhost:3000/api/team", {teamName: selectedTeam, pointsToAdd: points, reason: reason})
             .then(r => {
-                console.log(r);
+                console.log("hiii  " + r);
             })
             .catch(err => {
                 console.log(err);

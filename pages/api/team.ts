@@ -47,13 +47,6 @@ export default async function handler(
 
     await runMiddleware(req, res, cors);
 
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    );
-    res.setHeader("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-
   const session = await getToken({req, secret})
   const repo = new TeamRepo();  const pointsRepo = new PointLogRepo();
 
@@ -61,6 +54,7 @@ export default async function handler(
   if (req.method != "GET") {
     if (!session?.email?.endsWith("isflemingsberg.se")) {
       res.status(403).json({name: "Unauthorised"})
+        return;
     }
   }
 
