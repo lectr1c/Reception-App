@@ -17,8 +17,17 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.setHeader("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+
   const session = await getToken({req, secret})
   const repo = new TeamRepo();  const pointsRepo = new PointLogRepo();
+
 
   if (req.method != "GET") {
     if (!session?.email?.endsWith("isflemingsberg.se")) {

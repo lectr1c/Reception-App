@@ -20,6 +20,14 @@ export default async function handler(
     const repo = new TeamRepo();
     const pointsRepo = new PointLogRepo();
 
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.setHeader("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+
     return new Promise(resolve => {
 
         if (req.method == "GET") {

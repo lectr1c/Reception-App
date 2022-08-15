@@ -1,13 +1,17 @@
 import styles from '../styles/Header.module.css';
 import { Button } from '@mantine/core';
+import Link from 'next/link'
 
 
 const Header = () => {
 
     return (
-        <div className={styles.container}>
-            <h1>MOTTAGNING 2022 POÄNGJAKT</h1>
-        </div>
+        <Link href="/">
+            <div className={styles.container}>
+                <h1>MOTTAGNING 2022 POÄNGJAKT</h1>
+            </div>
+        </Link>
+
     )
 }
 
