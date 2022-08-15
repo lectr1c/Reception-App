@@ -42,7 +42,7 @@ const DashboardPage = () => {
     const addPoints = () => {
         axios.put("https://reception-app.vercel.app/api/team", {teamName: selectedTeam, pointsToAdd: points, reason: reason})
             .then(r => {
-                console.log("hiii  " + r);
+                console.log(r);
             })
             .catch(err => {
                 console.log(err);

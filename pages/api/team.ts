@@ -49,12 +49,7 @@ export default async function handler(
 
     const session = await getToken({req});
 
-    if (req.method != "GET") {
-        if (!session) {
-            res.status(403);
-            return;
-        }
-      }
+
 
 
   const repo = new TeamRepo();  const pointsRepo = new PointLogRepo();
@@ -63,6 +58,12 @@ export default async function handler(
 
 
     return new Promise(resolve => {
+        if (req.method != "GET") {
+            if (!session) {
+                res.status(403);
+                return resolve;
+            }
+        }
         if (req.method == "POST") {
             repo.createTeam({
                 name: req.body.name,
