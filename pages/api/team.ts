@@ -47,15 +47,17 @@ export default async function handler(
 
     await runMiddleware(req, res, cors);
 
-    if (req.method != "GET") {
-        await getToken({req})
-            .then(r => {
-                if (!r) {
-                    // @ts-ignore
-                    res.status(403).json({name: "", ...r})
-                    return;
-                }
-      })}
+    // if (req.method != "GET") {
+    //     await getToken({req})
+    //         .then(r => {
+    //             if (!r) {
+    //                 // @ts-ignore
+    //                 res.status(403).json({name: "", ...r})
+    //                 return;
+    //             }
+    //   })}
+
+    
   const repo = new TeamRepo();  const pointsRepo = new PointLogRepo();
 
 
