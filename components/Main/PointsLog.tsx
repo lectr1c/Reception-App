@@ -12,7 +12,7 @@ const PointsLog = () => {
     const [LogRows, setLogRows] = useListState<TPointsLog>();
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/pointslog")
+        axios.get("https://reception-app.vercel.app/api/pointslog")
             .then(r => {
                 setLogRows.setState([...r.data]);
             })

@@ -47,7 +47,7 @@ const PieGraph = () => {
     const  [teams, setTeams] = useListState<Team>();
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/team")
+        axios.get("https://reception-app.vercel.app/api/team")
             .then(r => {
                 console.log(r);
                 setTeams.setState([...r.data]);

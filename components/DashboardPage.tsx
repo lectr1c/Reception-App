@@ -12,7 +12,7 @@ const DashboardPage = () => {
     const  [teams, setTeams] = useListState<Team>();
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/team")
+        axios.get("https://reception-app.vercel.app/api/team")
             .then(r => {
                 console.log(r);
                 setTeams.setState([...r.data]);
@@ -25,7 +25,7 @@ const DashboardPage = () => {
     const [teamName, setTeamName] = useState("");
 
     const addTeam = () => {
-        axios.post("http://localhost:3000/api/team", {name: teamName})
+        axios.post("https://reception-app.vercel.app/api/team", {name: teamName})
             .then(r => {
                 console.log("Yooo" + r);
                 setTeams.setState([...r.data]);
@@ -40,7 +40,7 @@ const DashboardPage = () => {
     const [reason, setReason] = useState("");
 
     const addPoints = () => {
-        axios.put("http://localhost:3000/api/team", {teamName: selectedTeam, pointsToAdd: points, reason: reason})
+        axios.put("https://reception-app.vercel.app/api/team", {teamName: selectedTeam, pointsToAdd: points, reason: reason})
             .then(r => {
                 console.log("hiii  " + r);
             })
