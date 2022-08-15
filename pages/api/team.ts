@@ -6,6 +6,8 @@ import {Team} from "../../types";
 import {useSession} from "next-auth/react";
 import { getToken } from "next-auth/jwt"
 import PointLogRepo from "../../lib/repo/PointLogRepo";
+import { authOptions } from './auth/[...nextauth]'
+import { unstable_getServerSession } from "next-auth/next"
 
 const Cors = require('cors');
 
@@ -45,19 +47,10 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
 
-
-
     await runMiddleware(req, res, cors);
+    const session = await unstable_getServerSession(req, res, authOptions);
 
-    const session = await getToken({req});
-
-
-
-
-  const repo = new TeamRepo();  const pointsRepo = new PointLogRepo();
-
-
-
+    const repo = new TeamRepo();  const pointsRepo = new PointLogRepo();
 
     return new Promise(resolve => {
 
@@ -67,6 +60,7 @@ export default async function handler(
                 return;
             }
         }
+
         if (req.method == "POST") {
             repo.createTeam({
                 name: req.body.name,
