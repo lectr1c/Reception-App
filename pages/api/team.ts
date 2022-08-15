@@ -45,6 +45,8 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
 
+
+
     await runMiddleware(req, res, cors);
 
     const session = await getToken({req});
@@ -58,10 +60,11 @@ export default async function handler(
 
 
     return new Promise(resolve => {
+
         if (req.method != "GET") {
             if (!session) {
-                res.status(403);
-                return resolve;
+                res.status(403).json({name: "Error"});
+                return;
             }
         }
         if (req.method == "POST") {
@@ -70,7 +73,7 @@ export default async function handler(
                 points: 1
             }).then(r => {
                 // @ts-ignore
-                res.status(200).json({...r._doc});
+                res.status(200).json(r._doc);
             }).catch(err => {
                 res.status(400);
             });
