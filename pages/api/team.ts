@@ -47,7 +47,7 @@ export default async function handler(
 
     await runMiddleware(req, res, cors);
 
-  const session = await getToken({req, secret})
+  const session = await getToken({req})
   const repo = new TeamRepo();  const pointsRepo = new PointLogRepo();
 
 
