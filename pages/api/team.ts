@@ -6,7 +6,9 @@ import {Team} from "../../types";
 import {useSession} from "next-auth/react";
 import { getToken } from "next-auth/jwt"
 import PointLogRepo from "../../lib/repo/PointLogRepo";
-import Cors from 'cors';
+
+const Cors = require('cors');
+
 
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
