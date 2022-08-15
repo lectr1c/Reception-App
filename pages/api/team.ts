@@ -51,7 +51,8 @@ export default async function handler(
         await getToken({req})
             .then(r => {
                 if (!r) {
-                    res.status(403).json({name: "yoo"})
+                    // @ts-ignore
+                    res.status(403).json({name: "", ...r})
                     return;
                 }
       })}
