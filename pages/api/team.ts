@@ -52,8 +52,8 @@ export default async function handler(
 
 
   if (req.method != "GET") {
-    if (!session?.email?.endsWith("isflemingsberg.se")) {
-      res.status(403).json({name: session?.email ? session.email : "UNAUTH"})
+    if (!session) {
+        res.status(403).json({name: "yoo"})
         return;
     }
   }
