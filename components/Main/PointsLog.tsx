@@ -5,30 +5,20 @@ import styles from '../../styles/Main.module.css';
 import {useListState} from "@mantine/hooks";
 import logRow from "./PointsLog/LogRow";
 import {useEffect} from "react";
-
-const data: TPointsLog[] = [
-    {
-        id: 1,
-        teamName: "URanus",
-        points: 10,
-        reason: "Upphittad kod",
-        registeredAt: new Date(0)
-    },
-    {
-        id: 2,
-        teamName: "Jupyterrr",
-        points: 15,
-        reason: "FLOTTRACE",
-        registeredAt: new Date()
-    }
-]
+import axios from 'axios';
 
 const PointsLog = () => {
 
     const [LogRows, setLogRows] = useListState<TPointsLog>();
 
     useEffect(() => {
-        setLogRows.setState(data);
+        axios.get("http://localhost:3000/api/pointslog")
+            .then(r => {
+                setLogRows.setState([...r.data]);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }, [])
 
     return (

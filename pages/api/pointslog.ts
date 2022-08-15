@@ -25,7 +25,7 @@ export default async function handler(
         if (req.method == "GET") {
             pointsRepo.getLog().then(r => {
                 // @ts-ignore
-                res.status(200).json({...r});
+                res.status(200).json(r);
             })
                 .catch(err => {
                     res.status(400);

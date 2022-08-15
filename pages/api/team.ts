@@ -19,18 +19,18 @@ export default async function handler(
 ) {
   const session = await getToken({req, secret})
   const repo = new TeamRepo();  const pointsRepo = new PointLogRepo();
-  //
-  // if (req.method != "GET") {
-  //   if (!session?.email?.endsWith("isflemingsberg.se")) {
-  //     res.status(403).json({name: "Unauthorised"})
-  //   }
-  // }
+
+  if (req.method != "GET") {
+    if (!session?.email?.endsWith("isflemingsberg.se")) {
+      res.status(403).json({name: "Unauthorised"})
+    }
+  }
 
     return new Promise(resolve => {
         if (req.method == "POST") {
             repo.createTeam({
                 name: req.body.name,
-                points: 0
+                points: 1
             }).then(r => {
                 // @ts-ignore
                 res.status(200).json({...r._doc});
@@ -43,7 +43,7 @@ export default async function handler(
             repo.getTeams()
                 .then(r => {
                     // @ts-ignore
-                    res.status(200).json({...r});
+                    res.status(200).json(r);
                 })
                 .catch(err => {
                     res.status(400).json({name: err.message})
@@ -55,6 +55,8 @@ export default async function handler(
             // @ts-ignore
             pointsRepo.addPoints(req.body.teamName, req.body.pointsToAdd, req.body.reason)
                 .then(r => {
+                    console.log(r);
+
                     // @ts-ignore
                     res.status(200).json({points: (r.points + req.body.pointsToAdd)})
                 })
