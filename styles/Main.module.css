@@ -12,10 +12,24 @@
     margin-bottom: 4rem;
     background-color: #E5E5E5;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     padding: 0 10px 20px 10px;
+}
+
+.heroMessageCon
+{
+    font-size: 20px;
+    word-break: break-word;
+    color: #004e98;
+    font-family: 'Silkscreen', cursive;
+}
+
+.heroMessageCon b {
+    text-decoration: underline;
+    text-decoration-color: #111111;
+    color: #fca311;
 }
 
 @media screen and (max-width: 630px) {
@@ -35,6 +49,9 @@
     }
     .graphContainer{
         flex-basis: 100%;
+    }
+    .heroContainer {
+        flex-wrap: wrap !important;
     }
 }
 
@@ -71,6 +88,6 @@
 }
 
 .table tbody tr {
-    color: #14213D;
+    color: #004e98;
     font-family: 'Silkscreen', cursive;
 }

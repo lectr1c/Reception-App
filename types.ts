@@ -1,6 +1,6 @@
 
 type TPointsLog = {
-    id?: number,
+    _id?: number,
     teamName?: string,
     reason?: string,
     points?: number,
@@ -8,7 +8,7 @@ type TPointsLog = {
 }
 
 type Team = {
-    id?: number,
+    _id?: number,
     name?: string,
     points?: number
 }

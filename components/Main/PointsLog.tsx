@@ -21,6 +21,9 @@ const PointsLog = () => {
             })
     }, [])
 
+    console.log(LogRows);
+
+
     return (
         <div className={styles.tableContainer}>
             <Table highlightOnHover className={styles.table}>
@@ -39,7 +42,7 @@ const PointsLog = () => {
                         reason={row.reason}
                         registeredAt={row.registeredAt}
                         teamName={row.teamName}
-                        key={row.id}/>)
+                        key={row._id}/>)
                 })}
                 </tbody>
             </Table>

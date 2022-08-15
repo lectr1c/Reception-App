@@ -42,29 +42,19 @@ export const options : ChartOptions<'pie'> = {
     }
 }
 
-const PieGraph = () => {
 
-    const  [teams, setTeams] = useListState<Team>();
 
-    useEffect(() => {
-        axios.get("https://reception-app.vercel.app/api/team")
-            .then(r => {
-                console.log(r);
-                setTeams.setState([...r.data]);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }, [])
+const PieGraph = (props: {teams: Team[]}) => {
+
 
     const data : ChartData<'pie'> = {
-        labels: teams.map((team: Team) => {
+        labels: props.teams.map((team: Team) => {
             return team.name ? team.name : ""
         }),
         datasets: [
             {
                 label: '# Points',
-                data: teams.map((team : Team) => {
+                data: props.teams.map((team : Team) => {
                     return team.points ? team.points : 0
                 }),
                 backgroundColor: [
